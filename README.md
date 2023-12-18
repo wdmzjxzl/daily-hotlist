@@ -41,9 +41,9 @@
 | --------- | --------------- |
 | X-Licence | 3yVabcd1234d597 |
 
-{% gallery left %}
+
 <img src="https://pic.zlinblog.cn/api_example.jpg" alt="api_example"/>
-{%endgallery%}
+
 
 ### 3. API地址
 
