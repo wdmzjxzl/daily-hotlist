@@ -1,4 +1,7 @@
+&emsp;&emsp;项目目前处于【非稳定版本】状态，随时迭代更新中，暂仅供测试使用；未来会逐步增加更多平台的榜单数据。该文档更新时间为：2023-12-18，非最新版，详情请从正文点击跳转官网查看文档进行接入
 
+
+<!-- more -->
 ## 一、介绍
 
 ### 1. 项目介绍
@@ -9,7 +12,7 @@
 
 > 目前已提供平台：
 >
-> 百度、微博、知乎、豆瓣、BiliBili、人人都是产品经理、IT之家、抖音、虎扑、澎湃新闻、36Kr、少数派、开眼视频
+> 百度、微博、知乎、豆瓣、BiliBili、人人都是产品经理、IT之家、抖音、虎扑、澎湃新闻、36Kr、少数派、开眼视频、百度贴吧、AcFun、CSDN、掘金、PMCAFF、博客园、指趣游戏盒、果盘游戏、TapTap、吾爱破解、GitHub、猫眼、3DMGame、懂车帝
 
 
 ### 2. 版权说明
@@ -28,95 +31,92 @@
 
 ### 1. Licence申请
 
-- 可前往 https://api.zlinblog.cn/index
+- [猛戳我！！！](https://api.zlinblog.cn/apply)
 
-### 2. API地址
+### 2. Auth Licence
 
-- 接口地址：`https://api.zlinblog.cn`
-
-> 后方拼接请求路径；示例：`https://api.zlinblog.cn/hot/v1b1/douban/book/top250`
-
-
-### 3. Auth Licence
-
-- 请求头Header
+- 请通过 请求头 HEADER 传递接口的访问许可证 X-Licence（请务必保存好自己的密钥）
 
 | 名称      | 值              |
 | --------- | --------------- |
 | X-Licence | 3yVabcd1234d597 |
 
-
+{% gallery left %}
 <img src="https://pic.zlinblog.cn/api_example.jpg" alt="api_example"/>
+{%endgallery%}
+
+### 3. API地址
+
+- 接口地址：`https://api.zlinblog.cn`
+
+> 后方拼接请求路径；示例：
+>
+> `https://api.zlinblog.cn/single/rank?platform=抖音&rank_name=地区榜&city_code=110000`
+
+| 接口           |
+| -------------- |
+| 全部榜单数据   |
+| 单条榜单数据   |
+| 模糊搜索热点   |
+| 自定义榜单数据 |
 
 
-### 4. API接口
 
-| 平台             | 接口名称       | 请求路径                                 | 请求方式 | 数据更新周期 | 状态  |
-| ---------------- | -------------- | ---------------------------------------- | -------- | ------------ | ----- |
-| 百度             | 热搜           | `/hot/v1b1/baidu`                        | GET      | 10分钟       | √     |
-|                  | 小说榜         | `/hot/v1b1/baidu/novel`                  | GET      | 6小时        | √     |
-|                  | 电影榜         | `/hot/v1b1/baidu/movie`                  | GET      | 6小时        | √     |
-|                  | 电视剧榜       | `/hot/v1b1/baidu/teleplay`               | GET      | 6小时        | √     |
-|                  | 汽车榜         | `/hot/v1b1/baidu/car`                    | GET      | 6小时        | √     |
-|                  | 游戏榜         | `/hot/v1b1/baidu/game`                   | GET      | 6小时        | √     |
-| 微博             | 热搜           | `/hot/v1b1/weibo`                        | GET      | 5分钟        | √     |
-|                  | 文娱榜         | `/hot/v1b1/weibo/entertainment`          | GET      | 10分钟       | √     |
-|                  | 要闻榜         | `/hot/v1b1/weibo/news`                   | GET      | 10分钟       | √     |
-|                  | 话题榜         | `/hot/v1b1/weibo/topic`                  | GET      | 10分钟       | √     |
-| 知乎             | 热榜           | `/hot/v1b1/zhihu`                        | GET      | 15分钟       | √     |
-| 豆瓣             | 最受关注图书榜 | `/hot/v1b1/douban/book/attention`        | GET      | 24小时       | √     |
-|                  | 畅销图书榜     | `/hot/v1b1/douban/book/sale`             | GET      | 24小时       | √     |
-|                  | 图书TOP250     | `/hot/v1b1/douban/book/top250`           | GET      | 24小时       | √     |
-|                  | 新片榜         | `/hot/v1b1/douban/movie/new`             | GET      | 24小时       | √     |
-|                  | 电影TOP250     | `/hot/v1b1/douban/movie/top250`          | GET      | 24小时       | √     |
-|                  | 一周口碑榜     | `/hot/v1b1/douban/movie/prestige`        | GET      | 24小时       | √     |
-|                  | 北美票房榜     | `/hot/v1b1/douban/movie/usa`             | GET      | 24小时       | √     |
-|                  | 音乐250TOP     | `/hot/v1b1/douban/music/top250`          | GET      | 24小时       | √     |
-| BiliBili         | 综合热门       | `/hot/v1b1/bilibili/popular`             | GET      | 10分钟       | √     |
-|                  | 全站排行       | `/hot/v1b1/bilibili`                     | GET      | 10分钟       | √     |
-|                  | 番剧排行       | `/hot/v1b1/bilibili/bangumi`             | GET      | 1小时        | √     |
-|                  | 国产动画排行   | `/hot/v1b1/bilibili/guochan`             | GET      | 1小时        | √     |
-|                  | 国创相关排行   | `/hot/v1b1/bilibili/guochuang`           | GET      | 1小时        | √     |
-|                  | 纪录片排行     | `/hot/v1b1/bilibili/documentary`         | GET      | 1小时        | √     |
-|                  | 动画排行       | `/hot/v1b1/bilibili/douga`               | GET      | 1小时        | √     |
-|                  | 音乐排行       | `/hot/v1b1/bilibili/music`               | GET      | 1小时        | √     |
-|                  | 舞蹈排行       | `/hot/v1b1/bilibili/dance`               | GET      | 1小时        | √     |
-|                  | 游戏排行       | `/hot/v1b1/bilibili/game`                | GET      | 1小时        | √     |
-|                  | 知识排行       | `/hot/v1b1/bilibili/knowledge`           | GET      | 1小时        | √     |
-|                  | 科技排行       | `/hot/v1b1/bilibili/tech`                | GET      | 1小时        | √     |
-|                  | 运动排行       | `/hot/v1b1/bilibili/sports`              | GET      | 1小时        | √     |
-|                  | 汽车排行       | `/hot/v1b1/bilibili/car`                 | GET      | 1小时        | √     |
-|                  | 生活排行       | `/hot/v1b1/bilibili/life`                | GET      | 1小时        | √     |
-|                  | 美食排行       | `/hot/v1b1/bilibili/food`                | GET      | 1小时        | √     |
-|                  | 动物圈排行     | `/hot/v1b1/bilibili/animal`              | GET      | 1小时        | √     |
-|                  | 鬼畜排行       | `/hot/v1b1/bilibili/kichiku`             | GET      | 1小时        | √     |
-|                  | 时尚排行       | `/hot/v1b1/bilibili/fashion`             | GET      | 1小时        | √     |
-|                  | 娱乐排行       | `/hot/v1b1/bilibili/ent`                 | GET      | 1小时        | √     |
-|                  | 影视排行       | `/hot/v1b1/bilibili/cinephile`           | GET      | 1小时        | √     |
-|                  | 电影排行       | `/hot/v1b1/bilibili/movie`               | GET      | 1小时        | √     |
-|                  | 电视剧排行     | `/hot/v1b1/bilibili/tv`                  | GET      | 1小时        | √     |
-|                  | 综艺排行       | `/hot/v1b1/bilibili/variety`             | GET      | 1小时        | √     |
-|                  | 原创排行       | `/hot/v1b1/bilibili/origin`              | GET      | 1小时        | √     |
-|                  | 新人排行       | `/hot/v1b1/bilibili/rookie`              | GET      | 1小时        | √     |
-| 人人都是产品经理 | 日榜           | `/hot/v1b1/woshipm/daily`                | GET      | 12小时       | √     |
-|                  | 周榜           | `/hot/v1b1/woshipm/weekly`               | GET      | 5天          | √     |
-|                  | 月榜           | `/hot/v1b1/woshipm/monthly`              | GET      | 20天         | √     |
-| IT之家           | 阅读榜         | `/hot/v1b1/ithome/read`                  | GET      | 6小时        | √     |
-|                  | 最热榜         | `/hot/v1b1/ithome/hot`                   | GET      | 6小时        | √     |
-|                  | 打分榜         | `/hot/v1b1/ithome/scores`                | GET      | 6小时        | √     |
-| 抖音             | 热点榜         | `/hot/v1b1/douyin/hot`                   | GET      | 5分钟        | √     |
-|                  | 种草榜         | `/hot/v1b1/douyin/grass`                 | GET      | 5分钟        | √     |
-|                  | 娱乐榜         | `/hot/v1b1/douyin/entertainment`         | GET      | 5分钟        | √     |
-|                  | 社会榜         | `/hot/v1b1/douyin/society`               | GET      | 5分钟        | √     |
-|                  | 挑战榜         | `/hot/v1b1/douyin/challenge`             | GET      | 5分钟        | √     |
-|                  | 地区榜         | `/hot/v1b1/douyin/area?city_code=xxxxxx` | GET      | 5分钟        | doing |
-| 虎扑             | 步行街热帖     | `/hot/v1b1/hupu`                         | GET      | 10分钟       | √     |
-| 澎湃新闻         | 热榜           | `/hot/v1b1/pengpai`                      | GET      | 20分钟       | √     |
-| 36Kr             | 综合榜         | `/hot/v1b1/36kr`                         | GET      | 5分钟        | √     |
-|                  | 人气榜         | `/hot/v1b1/36kr/popular`                 | GET      | 5分钟        | √     |
-|                  | 收藏榜         | `/hot/v1b1/36kr/collect`                 | GET      | 5分钟        | √     |
-| 少数派           | 热榜           | `/hot/v1b1/sspai`                        | GET      | 2小时        | √     |
-| 开眼视频         | 日报           | `/hot/v1b2/eye`                          | GET      | 6小时        | √     |
+### 4. 接口详情
+
+#### 4.1 全部榜单数据
+
+（1）描述：获取HotList今日热榜现有的全部榜单数据（获取的是最新数据）
+
+（2）地址：`https://api.zlinblog.cn/all/rank`
+
+（3）请求方法：GET
+
+（4）查询参数
+
+| 参数名称 | 必传 | 类型 | 说明                   | 示例值 |
+| -------- | ---- | ---- | ---------------------- | ------ |
+| page     | 否   | int  | 页码，默认为1          | 50     |
+| limit    | 否   | int  | 每页数据条数，默认为50 | 100    |
+
+#### 4.2 单条榜单数据
+
+（1）描述：根据平台名称及榜单名称查询具体某一个榜单的数据（获取的是最新数据）
+
+（2）地址：`https://api.zlinblog.cn/single/rank`
+
+（3）请求方法：GET
+
+（4）查询参数
+
+- 具体平台与榜单名称列表请前往 [官网-接口文档](https://api.zlinblog.cn/document) 进行查阅
+
+| 参数名称      | 必传 | 类型 | 说明                                                         | 示例值     |
+| ------------- | ---- | ---- | ------------------------------------------------------------ | ---------- |
+| platform      | 是   | str  | 平台名称；该字段参数值需要与上方API接口目录表中的【平台名称】对应 | 虎扑       |
+| rank_name     | 是   | str  | 榜单名称；该字段参数值需要与上方API接口目录表中的【榜单类型】对应 | 步行街热帖 |
+| city_code     | 是   | str  | [百科：行政划区代码](https://baike.baidu.com/item/行政区划代码/5650987?fr=ge_ala)（**抖音·地区榜** 专用，其他榜单无需传入） | 110000     |
+| child_channel | 是   | str  | 二级榜单类型（**CSDN·领域内容榜** 专用，其他榜单无需传入）   | JavaScript |
+
+#### 4.3 模糊搜索热点
+
+（1）描述：根据关键词查询全部榜单数据中存在的相关联的数据（获取的是最新数据）
+
+（2） 地址：`/all/hot/data`
+
+（3）请求方式：GET
+
+（4）查询参数
+
+| 参数名称 | 必传 | 类型 | 说明           | 示例值 |
+| -------- | ---- | ---- | -------------- | ------ |
+| keyword  | 是   | str  | 模糊查询关键词 | 省考   |
+
+#### 4.4 自定义榜单数据
+
+（1）描述：用于自定义榜单数据(自定义淘宝带货榜单或其他用于商业盈利性质的榜单数据)，请勿上传非法数据！
+
+（2）地址： 请通过 [官网 · 带货管理](https://api.zlinblog.cn/marketing) 菜单界面进行操作
 
 
 ### 5. 返回成功示例
@@ -126,26 +126,26 @@
   "code": 200,
   "msg": "ok",
   "name": "百度热搜",
-  "data":{
-      "version": "v1b1",
-      "count": 2,
-      "date_time": 1698658626,
-      "stable": true,
-      "list": [
-        {
-          "title": "  中国将始终是世界发展的重要机遇 "
-          "heat": 4966581,
-          "link": "https://www.baidu.com/s?wd=%E4%B8%AD%E5%9B%BD%E5%B0%86%E5%A7%8B%E7%BB%88%E6%98%AF%E4%B8%96%E7%95%8C%E5%8F%91%E5%B1%95%E7%9A%84%E9%87%8D%E8%A6%81%E6%9C%BA%E9%81%87&sa=fyb_news&rsv_dl=fyb_news",
-          "update_time": 1698658626
-        },
-        {
-          "title": "  中央军委副主席张又侠谈台湾问题 ",
-          "heat": 4969282,
-          "link": "https://www.baidu.com/s?wd=%E4%B8%AD%E5%A4%AE%E5%86%9B%E5%A7%94%E5%89%AF%E4%B8%BB%E5%B8%AD%E5%BC%A0%E5%8F%88%E4%BE%A0%E8%B0%88%E5%8F%B0%E6%B9%BE%E9%97%AE%E9%A2%98&sa=fyb_news&rsv_dl=fyb_news",
-          "update_time": 1698658626
-        }
-      ]
-    }
+  "data": {
+    "version": "v1b1",
+    "count": 2,
+    "date_time": 1698658626,
+    "stable": true,
+    "list": [
+      {
+        "title": "OpenAI创始人加入微软",
+        "heat": 4966581,
+        "link": "https://www.baidu.com/s?wd=%E",
+        "update_time": 1698658626
+      },
+      {
+        "title": "乌尔善取关封神所有演员",
+        "heat": 4969282,
+        "link": "https://www.baidu.com/s?wd=%E4",
+        "update_time": 1698658626
+      }
+    ]
+  }
 }
 ```
 
@@ -199,6 +199,9 @@
 | 100003 | 证书已过期，请重新申请证书                             |
 | 100004 | 总请求次数不足，请续费或重新申请证书                   |
 | 100005 | 当日剩余请求次数不足，请明日再试                       |
+| 100006 | 未查询到接口信息                                       |
+| 100007 | 请传入city_code                                        |
+| 100008 | 请传入child_channel                                    |
 | 100101 | 接口列表获取失败                                       |
 | 100102 | 请在请求头中定义X-Licence证书进行认证(X-Licence=xxxxx) |
 | -      | -                                                      |
@@ -238,12 +241,14 @@
 | 400007 | 未找到数据                                             |
 | 400008 | 数据删除失败，请重试                                   |
 | 400009 | 该许可证上传数据条数已达上限                           |
-
-## 三、捐赠
-
-- 捐赠将用于服务器成本及接口维护成本
+| 400010 | CSDN领域内容榜传入类型错误                             |
 
 
-<img src="https://pic.zlinblog.cn/ali_juanzeng.jpg" style="zoom:32%;" alt="支付宝"/>
-<img src="https://pic.zlinblog.cn/we_juanzeng.jpg" style="zoom:50%;" alt="微信"/>
+
+## 三、赞赏
+
+- 您的小额赞助对我们的工作有着巨大的帮助，让我们得以持续改进与提升服务品质。
+
+
+<img src="https://pic.zlinblog.cn/arv_honor%20code.png" style="zoom:15%;" alt="微信"/>
 
