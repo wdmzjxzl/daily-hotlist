@@ -2,7 +2,8 @@
 
 ##### 热榜API接入案例：
 
-![image](https://github.com/wdmzjxzl/daily-hotlist/assets/36881585/e586b2d6-817e-4c0f-b99c-5e78814e20e0)
+![gh_e52688386af7_258](https://github.com/wdmzjxzl/daily-hotlist/assets/36881585/46657011-e4b6-41f0-963a-f169e6c4221e)
+
 
 
 <!-- more -->
