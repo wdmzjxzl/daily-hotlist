@@ -1,5 +1,9 @@
 &emsp;&emsp;该文档更新时间为：2023-12-18，非最新版，详情请从正文点击跳转官网查看文档进行接入
 
+##### 热榜API接入案例：
+
+![image](https://github.com/wdmzjxzl/daily-hotlist/assets/36881585/e586b2d6-817e-4c0f-b99c-5e78814e20e0)
+
 
 <!-- more -->
 ## 一、介绍
